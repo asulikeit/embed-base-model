@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name='embed-base-model',
-    version='0.1.0',
+    version='0.1.1',
     license='Apache-2.0',
     author='Daniel Lee',
     author_email='rootuser.kr@gmail.com',

@@ -45,3 +45,6 @@ class EmbedModelBase(metaclass=ABCMeta):
         _encode1 = self._get_encode(input_text1)
         _encode2 = self._get_encode(input_text2)
         return self._calculate_cosine_similarity(_encode1, _encode2)
+    
+    def encode(self, input_text: str):
+        return self.tokenizer.encode(input_text, add_special_tokens=True).to(self.device)
