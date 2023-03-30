@@ -38,7 +38,7 @@ class EmbedModelBase(metaclass=ABCMeta):
         return _result
     
     def _calculate_cosine_similarity(self, encode_text1: torch.Tensor, encode_text2: torch.Tensor):
-        _sim_score = F.cosine_similarity(encode_text1, encode_text2)
+        _sim_score = F.cosine_similarity(encode_text1, encode_text2, dim=0)
         return round(_sim_score.item(), self.ROUND_LEN)
     
     def calculate_similiarity(self, input_text1: str, input_text2: str):
