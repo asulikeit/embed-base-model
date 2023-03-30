@@ -29,8 +29,11 @@ class EmbedModelBase(metaclass=ABCMeta):
         _result = None
         with torch.no_grad():
             _output = self.model(_encoded_sentence)
-            # _embeded_sentence = _output.last_hidden_state.mean(dim=1)
-            _embeded_sentence = _output.hidden_states[-1].mean(dim=1)
+            if _output.hidden_states:
+                _embeded_sentence = _output.hidden_states[-1].mean(dim=1)
+            else:
+                #TODO: catch more exceptions
+                _embeded_sentence = _output.last_hidden_state.mean(dim=1)
             _result = torch.squeeze(_embeded_sentence)
         return _result
     
