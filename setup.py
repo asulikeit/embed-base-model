@@ -7,6 +7,7 @@ setuptools.setup(
     author='Daniel Lee',
     author_email='rootuser.kr@gmail.com',
     description='Python abstract class for embedding sentences',
+    long_description=open('README.md').read(),
     url='https://github.com/asulikeit/embed-base-model',
     packages=['embedmodel'],
     classifiers=[
